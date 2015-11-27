@@ -37,8 +37,7 @@ namespace PartyInvites2.Presenters
 
         IResult IPresenter<IEnumerable<GuestResponse>>.GetResult()
         {
-            return new DataResult<IEnumerable<GuestResponse>>(repository
-            .GetAllResponses());
+            return new DataResult<IEnumerable<GuestResponse>>(repository.GetAllResponses());
         }
 
         IResult IPresenter<IEnumerable<GuestResponse>>.GetResult(IEnumerable<GuestResponse> requestData)

@@ -14,6 +14,8 @@ namespace PartyInvites2.Tests
     {
         class MockRepository : IRepository
         {
+           
+
             private List<GuestResponse> mockData = new List<GuestResponse> {
                 new GuestResponse {Name = "Person1", WillAttend = true},
                 new GuestResponse {Name = "Person2", WillAttend = false},
@@ -34,8 +36,7 @@ namespace PartyInvites2.Tests
             // Arrange
             IRepository repo = new MockRepository();
             IPresenter<GuestResponse> target = new RSVPPresenter { repository = repo };
-            GuestResponse dataObject =
-            new GuestResponse { Name = "TEST", WillAttend = true };
+            GuestResponse dataObject = new GuestResponse { Name = "TEST", WillAttend = true };
             // Act
             IResult result = target.GetResult(dataObject);
             // Assert
@@ -54,8 +55,7 @@ namespace PartyInvites2.Tests
             // Act & Assert
             foreach (bool? testValue in values)
             {
-                GuestResponse dataObject =
-                new GuestResponse { Name = "TEST", WillAttend = testValue };
+                GuestResponse dataObject = new GuestResponse { Name = "TEST", WillAttend = testValue };
                 IResult result = target.GetResult(dataObject);
                 Assert.IsInstanceOfType(result, typeof(RedirectResult));
             }
@@ -69,8 +69,7 @@ namespace PartyInvites2.Tests
             IRepository repo = new MockRepository();
             IPresenter<GuestResponse> target = new RSVPPresenter { repository = repo };
             // Act
-            GuestResponse dataObject
-            = new GuestResponse { Name = "TEST", WillAttend = null };
+            GuestResponse dataObject = new GuestResponse { Name = "TEST", WillAttend = null };
             IResult result = target.GetResult(dataObject);
         }
 
